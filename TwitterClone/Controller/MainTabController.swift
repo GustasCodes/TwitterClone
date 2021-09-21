@@ -9,8 +9,16 @@ import UIKit
 import Firebase
 
 class MainTabController: UITabBarController {
-
+    
     // MARK: - Properties
+    
+    var user: User? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            feed.user = user
+        }
+    }
     
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -25,13 +33,19 @@ class MainTabController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        logUserOut() // Testing only
+        
+//        logUserOut() // Testing only
         view.backgroundColor = .systemBackground
         authenticateUserAndConfigureUI()
     }
     
     // MARK: - API
+    
+    func fetchUser() {
+        UserService.shared.fetchUser { (user) in
+            self.user = user
+        }
+    }
     
     func authenticateUserAndConfigureUI() {
         if Auth.auth().currentUser == nil {
@@ -43,6 +57,7 @@ class MainTabController: UITabBarController {
         } else {
             configureViewController()
             configureUI()
+            fetchUser()
         }
     }
     
@@ -56,7 +71,12 @@ class MainTabController: UITabBarController {
     
     // MARK: - Selectors
     @objc func actionButtonTapped() {
-        // Do something...
+        if let user = self.user {
+            let nav = UINavigationController(rootViewController: UploadTweetController(user: user))
+            nav.modalPresentationStyle = .fullScreen
+            nav.navigationBar.barTintColor = .systemBackground
+            present(nav, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers

@@ -14,6 +14,7 @@ App is still in early stage of development.
 ### Dependencies
 
 * Firebase (File - Swift Packages - Add Package Dependency.. "https://github.com/firebase/firebase-ios-sdk.git" - then select FirebaseAuth, FirebaseFirestore, FirebaseFirestoreSwift-Beta, FirebaseFunctions, FirebaseMessaging, FirebaseStorage)
+* Kingfisher (File - Swift Packages - Add Package Dependency.. "https://github.com/onevcat/Kingfisher.git")
 
 ## Authors
 
@@ -27,5 +28,6 @@ Gustas Brazaitis - [@gustascodes]
 - [X] Adopt to Dark Mode
 - [X] Connect Firebase
 - [X] Authenticate User
-- [ ] Fetch user data from Firebase
+- [X] Fetch user data from Firebase
 - [ ] Send & load tweets
+- [ ] Build User Profile
