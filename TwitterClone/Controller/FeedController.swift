@@ -21,7 +21,7 @@ class FeedController: UIViewController {
     // MARK: - Helpers
     
     func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         let imageView = UIImageView(image: UIImage(named: "icons8-twitter-30"))
         imageView.contentMode = .scaleAspectFit

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabController: UITabBarController {
 
@@ -25,8 +26,32 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureViewController()
-        configureUI()
+        logUserOut() // Testing only
+        view.backgroundColor = .systemBackground
+        authenticateUserAndConfigureUI()
+    }
+    
+    // MARK: - API
+    
+    func authenticateUserAndConfigureUI() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: LoginController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        } else {
+            configureViewController()
+            configureUI()
+        }
+    }
+    
+    func logUserOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
     // MARK: - Selectors
@@ -61,7 +86,7 @@ class MainTabController: UITabBarController {
     func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = image
-        nav.navigationBar.barTintColor = .white
+        nav.navigationBar.barTintColor = .systemBackground
         return nav
     }
 }

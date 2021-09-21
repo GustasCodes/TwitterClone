@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     // MARK: - Properties
     
     private let signupButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.backgroundColor = .twitterBlue
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.textPrimary, for: .normal)
@@ -31,7 +32,7 @@ class RegistrationController: UIViewController {
     }()
     
     private let navigateBackButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.backgroundColor = .systemBackground
         
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)
@@ -43,7 +44,7 @@ class RegistrationController: UIViewController {
     }()
     
     private let titleText: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Create your account"
         label.font = UIFont.systemFont(ofSize: 20, weight: .black)
         label.tintColor = .textPrimary
@@ -89,7 +90,19 @@ class RegistrationController: UIViewController {
     }
     
     @objc func registerNewUser() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = nameTextField.text else { return }
+        guard let username = usernameTextField.text else { return }
         
+        AuthService.shared.register(email: email, password: password, fullname: fullname, username: username) {
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authenticateUserAndConfigureUI()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - Lifecycle
