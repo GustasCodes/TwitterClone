@@ -13,7 +13,7 @@ App is still in early stage of development.
 
 ### Dependencies
 
-* Firebase
+* Firebase (File - Swift Packages - Add Package Dependency.. "https://github.com/firebase/firebase-ios-sdk.git" - then select FirebaseAuth, FirebaseFirestore, FirebaseFirestoreSwift-Beta, FirebaseFunctions, FirebaseMessaging, FirebaseStorage)
 
 ## Authors
 
