@@ -25,7 +25,7 @@ Gustas Brazaitis - [@gustascodes]
 
 - [X] Login & Sign Up UI
 - [X] Adopt to Dark Mode
-- [ ] Connect Firebase
-- [ ] Authenticate User
+- [X] Connect Firebase
+- [X] Authenticate User
 - [ ] Fetch user data from Firebase
 - [ ] Send & load tweets
