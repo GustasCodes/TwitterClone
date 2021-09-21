@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 .DS_Store
 
+=======
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+<<<<<<< HEAD
 ## Build generated
 build/
 DerivedData/
@@ -38,6 +42,24 @@ samples/ios/Continote/Continote/FCNContinue.h
 samples/ios/Continote/Continote/FCNContinue.m
 
 ## Various settings
+=======
+## User settings
+xcuserdata/
+
+## Plists
+*Info.plist
+*google-services.json
+*GoogleService-Info.plist
+
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+*.xcscmblueprint
+*.xccheckout
+
+## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+build/
+DerivedData/
+*.moved-aside
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -46,6 +68,7 @@ samples/ios/Continote/Continote/FCNContinue.m
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+<<<<<<< HEAD
 xcuserdata/
 
 ## Other
@@ -55,10 +78,38 @@ xcuserdata/
 
 ## Obj-C/Swift specific
 *.hmap
+=======
+
+## Obj-C/Swift specific
+*.hmap
+
+## App packaging
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
 *.ipa
 *.dSYM.zip
 *.dSYM
 
+<<<<<<< HEAD
+=======
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+# Package.pins
+# Package.resolved
+# *.xcodeproj
+#
+# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
+# hence it is not needed unless you have added a package configuration file to your project
+# .swiftpm
+
+.build/
+
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
@@ -66,24 +117,47 @@ xcuserdata/
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 # Pods/
+<<<<<<< HEAD
+=======
+#
+# Add this line if you want to avoid checking in source code from the Xcode workspace
+# *.xcworkspace
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
 
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
+<<<<<<< HEAD
 Carthage/Build
 
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
 # screenshots whenever they are needed.
+=======
+Carthage/Build/
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 fastlane/report.xml
 fastlane/Preview.html
+<<<<<<< HEAD
 fastlane/screenshots
+=======
+fastlane/screenshots/**/*.png
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
 fastlane/test_output
 
 # Code Injection
@@ -91,4 +165,8 @@ fastlane/test_output
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
+<<<<<<< HEAD
 iOSInjectionProject/
+=======
+iOSInjectionProject/
+>>>>>>> 469819da727d7c9f6d041fb592d3cde8cda466c4
