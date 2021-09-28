@@ -29,5 +29,5 @@ Gustas Brazaitis - [@gustascodes]
 - [X] Connect Firebase
 - [X] Authenticate User
 - [X] Fetch user data from Firebase
-- [ ] Send & load tweets
+- [X] Send & load tweets
 - [ ] Build User Profile
