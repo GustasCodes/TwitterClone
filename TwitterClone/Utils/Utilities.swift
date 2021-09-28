@@ -43,4 +43,12 @@ class Utilities {
         
         return button
     }
+    
+    func tweetCellButton(image: UIImage) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage(image, for: .normal)
+        button.tintColor = .darkGray
+        button.setDimensions(width: 20, height: 20)
+        return button
+    }
 }

@@ -15,4 +15,6 @@ struct Tweet: Identifiable, Decodable {
     let likes: Int
     let retweets: Int
     let timestamp: Timestamp
+    
+    var user: User?
 }

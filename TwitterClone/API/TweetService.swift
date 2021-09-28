@@ -23,7 +23,17 @@ struct TweetService {
         COLLECTION_TWEETS.addDocument(data: data, completion: completion)
     }
     
-    func fetchTweets() {
-        // TODO: - Fetch tweets from Firebase and display for users
+    func fetchTweets(completion: @escaping([Tweet]) -> ()) {
+        var tweets = [Tweet]()
+        
+        COLLECTION_TWEETS.order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+            }
+            
+            guard let documents = snapshot?.documents else { return }
+            tweets = documents.compactMap({ try? $0.data(as: Tweet.self) })
+            completion(tweets)
+        }
     }
 }
