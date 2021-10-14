@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol TweetCellDelegate: class {
+    func handleProfileImageAction()
+}
+
 class TweetCell: UICollectionViewCell {
     
     // MARK: - Properties
@@ -18,12 +22,18 @@ class TweetCell: UICollectionViewCell {
         }
     }
     
-    private let profileImage: UIImageView = {
+    weak var delegate: TweetCellDelegate?
+    
+    private lazy var profileImage: UIImageView = {
         let profileImageView = UIImageView()
         profileImageView.backgroundColor = .systemBackground
         profileImageView.setDimensions(width: 48, height: 48)
         profileImageView.layer.cornerRadius = 48 / 2
         profileImageView.clipsToBounds = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(displayUserProfile))
+        profileImageView.addGestureRecognizer(tapGesture)
+        profileImageView.isUserInteractionEnabled = true
         
         return profileImageView
     }()
@@ -99,6 +109,10 @@ class TweetCell: UICollectionViewCell {
     }
     
     // MARK: - Selectors
+    
+    @objc func displayUserProfile() {
+        delegate?.handleProfileImageAction()
+    }
     
     @objc func handleCommentTap() {
         
